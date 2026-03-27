@@ -298,7 +298,9 @@ void BLEControllerRegistry::_clientEventConsumerFn(void* pvParameters) {
         }
 
         pCtrl->markConnected();
-        Serial.println("######## Controller fully connected and initialized ########");
+        auto addr = pCtrl->getAddress();  // ou méthode équivalente
+        Serial.print("CONNECTED MAC: ");
+        Serial.println(addr.toString().c_str());       
         self->_sendUserCallbackMsg({BLEUserCallbackKind::ControllerConnected, pCtrl});
 
         BLEGC_LOGD("Controller successfully initialized");
