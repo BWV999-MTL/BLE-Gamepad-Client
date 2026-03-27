@@ -298,7 +298,7 @@ void BLEControllerRegistry::_clientEventConsumerFn(void* pvParameters) {
         }
 
         pCtrl->markConnected();
-        BLEGC_LOGI("Controller fully connected and initialized");
+        Serial.println("######## Controller fully connected and initialized ########");
         self->_sendUserCallbackMsg({BLEUserCallbackKind::ControllerConnected, pCtrl});
 
         BLEGC_LOGD("Controller successfully initialized");
